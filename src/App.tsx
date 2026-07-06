@@ -75,6 +75,10 @@ export default function App() {
       const formData = new FormData()
       formData.append('file', file)
       const apiBase = import.meta.env.VITE_API_URL ?? ''
+
+      //console para probar conexion con el back
+      console.log('API URL:', import.meta.env.VITE_API_URL)
+
       const response = await fetch(`${apiBase}/api/generate`, { method: 'POST', body: formData })
       if (intervalRef.current) clearInterval(intervalRef.current)
       setProgress(100); setProgressLabel('¡Listo!')
